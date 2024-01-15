@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h2 {
+    color: black;
+}
+
+h2 a {
+    position: relative;
+    color: rgb(187, 45, 45);
+    text-decoration: none;
+}
+h2 a:hover {
+    cursor: pointer;
+}
+
+h2 a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(187, 45, 45);
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+h2 a:hover::after {
+    visibility: visible;
+    width: 100%;
+}
+
