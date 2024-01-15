@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Estilização geral */
+.toggle {
+    padding: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Esconde o input checkbox padrão */
+.toggle-cb {
+    display: none;
+}
+
+/* Estilização do fundo do toggle */
+.toggle-label {
+    display: block;
+    width: 80px; /* Largura do toggle */
+    height: 30px; /* Altura do toggle */
+    background-color: #ccc; /* Cor do fundo */
+    border-radius: 15px; /* Borda arredondada */
+    border: gray solid 1px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Estilização do círculo que se move (interruptor) */
+.toggle-switch {
+    position: absolute;
+    top: -5px;
+    left: -7px;
+    width: 40px;
+    height: 40px;
+    border: gray solid 1px;
+    background-color: white;
+    border-radius: 50%;
+    transition: left 0.3s ease-in-out;
+}
+
+/* Texto "yes" e "no" */
+.toggle-label .toggle-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 30px; /* Altura da linha igual à altura do toggle */
+    user-select: none;
+    color: white;
+}
+
+.toggle-label .toggle-inner::before {
+    content: 'Yes';
+    position: absolute;
+    font-weight: 700;
+    left: 10px;
+}
+
+.toggle-label .toggle-inner::after {
+    content: 'No';
+    position: absolute;
+    font-weight: 700;
+    right: 10px;
+}
+
+/* Alteração de estilo quando o toggle está ativo (checked) */
+.toggle-cb:checked + .toggle-label {
+    background-color: rgb(224, 33, 33); /* Cor de fundo quando ativo */
+}
+
+.toggle-cb:checked + .toggle-label .toggle-switch {
+    left: calc(100% - 30px); /* Move o círculo para a direita */
+}
