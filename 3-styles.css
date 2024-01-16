@@ -13,11 +13,18 @@ body {
     width: 60px; 
     height: 60px;
     border-radius: 50%; 
-    background: rgb(224, 33, 33); 
+    background: #e1003c; 
     position: relative;
     cursor: pointer;
     user-select: none;
+    margin-bottom: 20px;
+    transition: 0.3s;
     
+}
+
+.menu-open-button:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
 }
 
 .menu-line {
@@ -58,7 +65,7 @@ body {
 .menu-item {
     display: none;
     position: relative;
-    background: rgb(224, 33, 33);
+    background: #e1003c; 
     color: white;
     border-radius: 50%;
     width: 60px;
@@ -66,45 +73,123 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    transition: transform 0.5s ease;
+    transform: translateY(0);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    margin-top: 10px;
    
 }
+
+@keyframes iconPop {
+    0% {
+        transform: scale(1) translateY(var(--translateY)) ;
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes iconPopReverse {
+    0% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1) translateY(var(--translateY));
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) translateY(var(--translateY));
+        opacity: 0;
+    }
+}
+
+
 
 .menu-open:checked ~ a {
     display: flex;
     text-decoration: none;
-    flex-direction: column-reverse;     
+    animation: iconPop 0.05s ease-out forwards;   
     
 }
-
+.menu-open:not(:checked) ~ a {
+    display: flex;
+    text-decoration: none;
+    animation: iconPopReverse 0.05s ease-out backwards;
+}
 .menu-open:checked ~ a:nth-child(2) {
-    transform: translateY(20px);
+    --translateY: -50px;
+    animation-delay: 0.05s;  
+}
+
+.menu-open:not(:checked) ~ a:nth-child(2) {
+    --translateY: -50px;
+    animation-delay: 0.3s;  
 }
 
 .menu-open:checked ~ a:nth-child(3) {
-    transform: translateY(30px);
+    --translateY: -40px;
+    animation-delay: 0.1s;  
+}
+
+.menu-open:not(:checked) ~ a:nth-child(3) {
+    --translateY: -50px;
+    animation-delay: 0.25s;  
 }
 
 .menu-open:checked ~ a:nth-child(4) {
-    transform: translateY(40px);
+    --translateY: -30px;
+    animation-delay: 0.15s;  
+}
+
+.menu-open:not(:checked) ~ a:nth-child(4) {
+    --translateY: -50px;
+    animation-delay: 0.2s;  
 }
 
 .menu-open:checked ~ a:nth-child(5) {
-    transform: translateY(50px);
+    --translateY: -20px;
+    animation-delay: 0.2s;  
+}
+
+.menu-open:not(:checked) ~ a:nth-child(5) {
+    --translateY: -50px;
+    animation-delay: 0.15s;  
 }
 
 .menu-open:checked ~ a:nth-child(6) {
-transform: translateY(130px);
+    --translateY: -10px;
+    animation-delay: 0.25s;  
 }
+
+.menu-open:not(:checked) ~ a:nth-child(6) {
+    --translateY: -50px;
+    animation-delay: 0.1s;  
+}
+
+.menu-open:checked ~ a:nth-child(7) {
+    --translateY: -10px;
+    animation-delay: 0.3s;  
+}
+.menu-open:not(:checked) ~ a:nth-child(7) {
+    --translateY: -50px;
+    animation-delay: 0.05s;  
+}
+
 
 .menu-item:hover {
 background-color: #fff;
-color: rgb(224, 33, 33);
-border: rgb(224, 33, 33) solid 1px;
+color: #e1003c; 
+border: #e1003c solid 1px;
 }
 
 .menu-item:hover i {
-    color: rgb(224, 33, 33);
+    color: #e1003c; 
 }
 
 .menu-item i {
