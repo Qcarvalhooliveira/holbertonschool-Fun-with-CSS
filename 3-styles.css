@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 20px;
+
+}
+
+.menu-open-button {
+    display: block;
+    width: 60px; 
+    height: 60px;
+    border-radius: 50%; 
+    background: rgb(224, 33, 33); 
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    
+}
+
+.menu-line {
+    background: white;
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    height: 2px;
+    transition: transform 0.5s ease;
+}
+
+.menu-line-1 {
+    top: 20px;
+}
+
+.menu-line-2 {
+    top: 29px;
+}
+
+.menu-line-3 {
+    top: 38px;
+}
+
+
+.menu-open:checked + .menu-open-button .menu-line-1 {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.menu-open:checked + .menu-open-button .menu-line-2 {
+    opacity: 0;
+}
+
+.menu-open:checked + .menu-open-button .menu-line-3 {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+
+.menu-item {
+    display: none;
+    position: relative;
+    background: rgb(224, 33, 33);
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.5s ease;
+   
+}
+
+.menu-open:checked ~ a {
+    display: flex;
+    text-decoration: none;
+    flex-direction: column-reverse;     
+    
+}
+
+.menu-open:checked ~ a:nth-child(2) {
+    transform: translateY(20px);
+}
+
+.menu-open:checked ~ a:nth-child(3) {
+    transform: translateY(30px);
+}
+
+.menu-open:checked ~ a:nth-child(4) {
+    transform: translateY(40px);
+}
+
+.menu-open:checked ~ a:nth-child(5) {
+    transform: translateY(50px);
+}
+
+.menu-open:checked ~ a:nth-child(6) {
+transform: translateY(130px);
+}
+
+.menu-item:hover {
+background-color: #fff;
+color: rgb(224, 33, 33);
+border: rgb(224, 33, 33) solid 1px;
+}
+
+.menu-item:hover i {
+    color: rgb(224, 33, 33);
+}
+
+.menu-item i {
+color: #fff;
+font-size: 24px; 
+}
+
+.menu-open {
+display: none;
+}
